@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../common/Button';
 
 const MODAL_STYLES = {
   position: 'fixed',
@@ -7,7 +8,7 @@ const MODAL_STYLES = {
   backgroundColor: '#FFFFFF',
   padding: '50px',
   height: '400px',
-  width: '600px',
+  width: '650px',
   borderRadius: '10px',
   zIndex: 5,
 };
@@ -20,6 +21,21 @@ const BACKGROUND_STYLES = {
   bottom: 0,
   backgroundColor: '#003080',
   zIndex: -1,
+};
+
+const X_BUTTON = {
+  position: 'absolute',
+  right: -3,
+  top: 5,
+};
+
+const BOOK_BUTTON = {
+  color: 'white',
+  backgroundColor: '#0082FF',
+  border: 'none',
+  borderRadius: '5px',
+  height: '40px',
+  width: '160px',
 };
 
 const usPrice = (price) => {
@@ -41,11 +57,28 @@ export default function ModalDetails({ open, setIsOpen, selectedSpot }) {
     <>
       <div style={BACKGROUND_STYLES} />
       <div style={MODAL_STYLES}>
-        <button onClick={() => setIsOpen(false)}>X</button>
-        <h1>Spot Details</h1>
-        <h1>{selectedSpot.title}</h1>
+        <div style={X_BUTTON}>
+          {/* <button onClick={() => setIsOpen(false)}>X</button> */}
+          <Button
+            style={{ height: '5px', width: '10px' }}
+            onClick={() => setIsOpen(false)}
+          >
+            {' '}
+            X
+          </Button>
+        </div>
+        <div style={{ marginLeft: '35%' }}>
+          <h1>Spot Details</h1>
+        </div>
+        <div style={{ marginTop: '5px' }}>
+          <h1>{selectedSpot.title}</h1>
+        </div>
         <p>{selectedSpot.description}</p>
-        <button>{usPrice(selectedSpot.price)} | Book It!</button>
+        <div style={{ marginLeft: '30%', top: '85%', position: 'absolute' }}>
+          <button style={BOOK_BUTTON}>
+            {usPrice(selectedSpot.price)} | Book It!
+          </button>
+        </div>
       </div>
     </>
   ) : null;
