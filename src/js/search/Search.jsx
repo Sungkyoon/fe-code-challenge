@@ -24,6 +24,7 @@ const Search = ({
                 <ModalDetails
                     open={isOpen}
                     setIsOpen={setIsOpen}
+                    selectedSpot={selectedSpot}
                 />
             </div>
 
