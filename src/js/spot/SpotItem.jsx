@@ -40,6 +40,7 @@ export default class SpotItem extends PureComponent {
         );
 
         return (
+
             <div className={classes}>
                 <Image src={image} />
                 <div className="SpotItem-info">
@@ -48,6 +49,7 @@ export default class SpotItem extends PureComponent {
                     {showDetails && <TextButton onClick={this._onDetailsClick}>Details</TextButton>}
                 </div>
             </div>
+
         );
     }
 }

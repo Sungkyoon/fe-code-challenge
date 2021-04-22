@@ -7,11 +7,13 @@ export default class SpotList extends PureComponent {
     static propTypes = {
         selectedSpot: PropTypes.object,
         spots: PropTypes.arrayOf(PropTypes.object).isRequired,
-        setSpot: PropTypes.func.isRequired
+        setSpot: PropTypes.func.isRequired,
+        setIsOpen: PropTypes.func.isRequired
     };
 
     _onDetailsClick = spot => {
         this.props.setSpot(spot);
+        this.props.setIsOpen(true);
     }
 
     render() {
