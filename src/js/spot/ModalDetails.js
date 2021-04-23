@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../common/Button';
 
 const MODAL_STYLES = {
@@ -75,9 +76,11 @@ export default function ModalDetails({ open, setIsOpen, selectedSpot }) {
         </div>
         <p>{selectedSpot.description}</p>
         <div style={{ marginLeft: '30%', top: '85%', position: 'absolute' }}>
-          <button style={BOOK_BUTTON}>
-            {usPrice(selectedSpot.price)} | Book It!
-          </button>
+          <Link to={{ pathname: '/checkout', state: { selectedSpot } }}>
+            <button style={BOOK_BUTTON}>
+              {usPrice(selectedSpot.price)} | Book It!
+            </button>
+          </Link>
         </div>
       </div>
     </>
