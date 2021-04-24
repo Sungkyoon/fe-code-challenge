@@ -4,10 +4,12 @@ import {Link} from 'react-router-dom';
 const CHECKOUT_STYLES = {
     height: '550px',
     width: '500px',
-    borderStyle: 'groove',
+    borderStyle: 'solid',
     borderRadius: '7px',
     marginLeft: '35%',
-    marginTop: '10%'
+    marginTop: '5%',
+    borderWidth: '0.5px',
+    borderColor: 'lightgrey'
 };
 
 const INPUT_STYLES = {
@@ -16,8 +18,12 @@ const INPUT_STYLES = {
     marginTop: '5px',
     borderRadius: '3px',
     borderWidth: '0.5px',
-    borderColor: 'grey',
-    opacity: '0.3'
+    borderStyle: 'solid',
+    borderColor: 'lightgrey',
+    opacity: '1',
+    focus: {
+        borderColor: '#008000',
+    }
 };
 
 const LABEL_STYLES = {
@@ -56,7 +62,7 @@ const Checkout = props => {
         >
             <div style={{marginLeft: '5%'}}>
 
-                <div style={{backgroundColor: '#0082FF', width: '105%', height: '40px', marginLeft: '-5.5%', marginRight: '-0.1%', borderTopLeftRadius: '7px', borderTopRightRadius: '7px'}}>
+                <div style={{backgroundColor: '#0082FF', width: '105.5%', height: '40px', marginLeft: '-5.5%', marginRight: '-0.1%', borderTopLeftRadius: '7px', borderTopRightRadius: '7px'}}>
                     <Link to="/">
                         <button style={{border: 'none', backgroundColor: 'transparent', color: 'white', marginTop: '10px', marginLeft: '10px'}}>{'< '} Back to Search</button>
                     </Link>
