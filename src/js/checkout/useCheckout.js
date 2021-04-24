@@ -1,7 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { buySpot } from './checkout-reducer';
+import { v4 as uuidv4 } from 'uuid';
 
 const useCheckout = (validateInput) => {
   const [values, setValues] = useState({
+    id: 0,
     firstName: '',
     lastName: '',
     email: '',

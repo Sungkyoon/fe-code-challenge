@@ -110,7 +110,6 @@ const Checkout = props => {
                             className="checkoutInput"
                             value={values.firstName}
                             onChange={handleChange}
-                            // required
                         />
                         <label
                             style={LABEL_STYLES}
@@ -124,7 +123,6 @@ const Checkout = props => {
                             className="checkoutInput"
                             value={values.lastName}
                             onChange={handleChange}
-                            // required
                         />
                         {errors.email ?
                             <>
@@ -140,7 +138,6 @@ const Checkout = props => {
                                     className="checkoutInput"
                                     value={values.email}
                                     onChange={handleChange}
-                                    // required
                                 />
                                 <p style={{color: 'red', marginBottom: '10px'}}>{errors.email}</p>
                             </> :
@@ -157,7 +154,6 @@ const Checkout = props => {
                                     className="checkoutInput"
                                     value={values.email}
                                     onChange={handleChange}
-                                    // required
                                 />
                             </>
                         }
@@ -175,7 +171,6 @@ const Checkout = props => {
                                     className="checkoutInput"
                                     value={values.phone}
                                     onChange={handleChange}
-                                    // required
                                 />
                                 <p style={{color: 'red'}}>{errors.phone}</p>
                             </> :
@@ -192,7 +187,6 @@ const Checkout = props => {
                                     className="checkoutInput"
                                     value={values.phone}
                                     onChange={handleChange}
-                                    // required
                                 />
                             </>
                         }

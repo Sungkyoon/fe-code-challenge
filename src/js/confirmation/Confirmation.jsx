@@ -79,6 +79,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     pushTo: push,
+
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Confirmation);
