@@ -136,7 +136,7 @@ const Checkout = props => {
                                 <input
                                     style={ERROR_INPUT}
                                     name="email"
-                                    type="email"
+                                    type="text"
                                     className="checkoutInput"
                                     value={values.email}
                                     onChange={handleChange}
@@ -153,7 +153,7 @@ const Checkout = props => {
                                 <input
                                     style={INPUT_STYLES}
                                     name="email"
-                                    type="email"
+                                    type="text"
                                     className="checkoutInput"
                                     value={values.email}
                                     onChange={handleChange}
@@ -171,7 +171,7 @@ const Checkout = props => {
                                 <input
                                     style={ERROR_INPUT}
                                     name="phone"
-                                    type="tel"
+                                    type="text"
                                     className="checkoutInput"
                                     value={values.phone}
                                     onChange={handleChange}
@@ -188,7 +188,7 @@ const Checkout = props => {
                                 <input
                                     style={INPUT_STYLES}
                                     name="phone"
-                                    type="tel"
+                                    type="text"
                                     className="checkoutInput"
                                     value={values.phone}
                                     onChange={handleChange}
