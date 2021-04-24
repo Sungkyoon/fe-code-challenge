@@ -3,13 +3,13 @@ import {Link} from 'react-router-dom';
 
 const CHECKOUT_STYLES = {
     height: '550px',
-    width: '500px',
+    width: '480px',
     borderStyle: 'solid',
     borderRadius: '7px',
     marginLeft: '35%',
     marginTop: '5%',
     borderWidth: '0.5px',
-    borderColor: 'lightgrey'
+    borderColor: 'lightgrey',
 };
 
 const INPUT_STYLES = {
@@ -79,8 +79,8 @@ const Checkout = props => {
                         </div>
                     </div>
 
-                    <hr style={{marginRight: '5%', opacity: '0.5', marginTop: '5%', marginBottom: '5%'}} />
-                    <form style={{display: 'flex', flexDirection: 'column'}}>
+                    <hr style={{marginRight: '10%', opacity: '0.5', marginTop: '5%', marginBottom: '5%'}} />
+                    <form style={{display: 'flex', flexDirection: 'column', marginRight: '-3%'}}>
 
                         <label
                             style={{marginTop: '10px'}}
