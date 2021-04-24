@@ -1,12 +1,15 @@
+
 import React from 'react';
 import {Link} from 'react-router-dom';
+import useCheckout from './useCheckout';
+import validateInput from './validateInput';
 
 const CHECKOUT_STYLES = {
     height: '550px',
-    width: '480px',
+    width: '400px',
     borderStyle: 'solid',
     borderRadius: '7px',
-    marginLeft: '35%',
+    marginLeft: '40%',
     marginTop: '5%',
     borderWidth: '0.5px',
     borderColor: 'lightgrey',
@@ -26,8 +29,19 @@ const INPUT_STYLES = {
     }
 };
 
-const LABEL_STYLES = {
+const ERROR_INPUT = {
+    height: '30px',
+    width: '90%',
     marginTop: '5px',
+    borderRadius: '3px',
+    borderWidth: '0.5px',
+    borderStyle: 'solid',
+    borderColor: 'red',
+    opacity: '1',
+};
+
+const LABEL_STYLES = {
+    marginTop: '10px',
 
 };
 
@@ -52,8 +66,7 @@ const usPrice = price => {
 
 const Checkout = props => {
     const {selectedSpot} = props.location.state;
-
-    console.log('This is props', selectedSpot);
+    const {handleChange, values, handleSubmit, errors} = useCheckout(validateInput);
 
     return (
         <div
@@ -79,8 +92,11 @@ const Checkout = props => {
                         </div>
                     </div>
 
-                    <hr style={{marginRight: '10%', opacity: '0.5', marginTop: '5%', marginBottom: '5%'}} />
-                    <form style={{display: 'flex', flexDirection: 'column', marginRight: '-3%'}}>
+                    <hr style={{marginRight: '8%', opacity: '0.3', marginTop: '5%', marginBottom: '5%', marginLeft: '1%'}} />
+                    <form
+                        style={{display: 'flex', flexDirection: 'column', marginRight: '-3%'}}
+                        onSubmit={handleSubmit}
+                    >
 
                         <label
                             style={{marginTop: '10px'}}
@@ -91,9 +107,10 @@ const Checkout = props => {
                             style={INPUT_STYLES}
                             name="firstName"
                             type="text"
-                            // value=""
                             className="checkoutInput"
-                            required
+                            value={values.firstName}
+                            onChange={handleChange}
+                            // required
                         />
                         <label
                             style={LABEL_STYLES}
@@ -104,36 +121,81 @@ const Checkout = props => {
                             style={INPUT_STYLES}
                             name="lastName"
                             type="text"
-                            // value=""
                             className="checkoutInput"
-                            required
+                            value={values.lastName}
+                            onChange={handleChange}
+                            // required
                         />
-                        <label
-                            style={LABEL_STYLES}
-                            htmlFor="email"
-                        >Email
-                        </label>
-                        <input
-                            style={INPUT_STYLES}
-                            name="email"
-                            type="text"
-                            // value=""
-                            className="checkoutInput"
-                            required
-                        />
-                        <label
-                            style={LABEL_STYLES}
-                            htmlFor="phone"
-                        >Phone Number
-                        </label>
-                        <input
-                            style={INPUT_STYLES}
-                            name="phone"
-                            type="text"
-                            // value=""
-                            className="checkoutInput"
-                            required
-                        />
+                        {errors.email ?
+                            <>
+                                <label
+                                    style={LABEL_STYLES, {color: 'red'}}
+                                    htmlFor="email"
+                                >Email
+                                </label>
+                                <input
+                                    style={ERROR_INPUT}
+                                    name="email"
+                                    type="email"
+                                    className="checkoutInput"
+                                    value={values.email}
+                                    onChange={handleChange}
+                                    // required
+                                />
+                                <p style={{color: 'red', marginBottom: '10px'}}>{errors.email}</p>
+                            </> :
+                            <>
+                                <label
+                                    style={LABEL_STYLES}
+                                    htmlFor="email"
+                                >Email
+                                </label>
+                                <input
+                                    style={INPUT_STYLES}
+                                    name="email"
+                                    type="email"
+                                    className="checkoutInput"
+                                    value={values.email}
+                                    onChange={handleChange}
+                                    // required
+                                />
+                            </>
+                        }
+                        {errors.phone ?
+                            <>
+                                <label
+                                    style={LABEL_STYLES, {color: 'red'}}
+                                    htmlFor="phone"
+                                >Phone Number
+                                </label>
+                                <input
+                                    style={ERROR_INPUT}
+                                    name="phone"
+                                    type="tel"
+                                    className="checkoutInput"
+                                    value={values.phone}
+                                    onChange={handleChange}
+                                    // required
+                                />
+                                <p style={{color: 'red'}}>{errors.phone}</p>
+                            </> :
+                            <>
+                                <label
+                                    style={LABEL_STYLES}
+                                    htmlFor="phone"
+                                >Phone Number
+                                </label>
+                                <input
+                                    style={INPUT_STYLES}
+                                    name="phone"
+                                    type="tel"
+                                    className="checkoutInput"
+                                    value={values.phone}
+                                    onChange={handleChange}
+                                    // required
+                                />
+                            </>
+                        }
                         <div style={{width: '50%', marginLeft: '40%'}}>
                             <button style={BUTTON_STYLES}>Purchase for {usPrice(selectedSpot.price)}</button>
                         </div>
