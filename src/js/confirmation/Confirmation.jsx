@@ -9,7 +9,8 @@ class Confirmation extends PureComponent {
     static propTypes = {
         email: PropTypes.string.isRequired,
         selectedSpot: PropTypes.object,
-        pushTo: PropTypes.func.isRequired
+        pushTo: PropTypes.func.isRequired,
+        values: PropTypes.object
     };
 
     constructor(props) {
@@ -17,7 +18,7 @@ class Confirmation extends PureComponent {
 
         const {
             selectedSpot,
-            pushTo
+            pushTo,
         } = props;
 
         // if you refresh on confirmation and there isn't a selectedSpot, make sure to go back to search and render nothing here
@@ -36,9 +37,9 @@ class Confirmation extends PureComponent {
 
     render() {
         const {
-            email,
-            selectedSpot
+            selectedSpot,
         } = this.props;
+        const email = this.props.location.state.values.email;
 
         if (!selectedSpot) {
             return null;
@@ -63,16 +64,13 @@ class Confirmation extends PureComponent {
 
 const mapStateToProps = state => {
     const {
-        checkout: {
-            email
-        },
+
         spot: {
             selected: selectedSpot
         }
     } = state;
 
     return {
-        email,
         selectedSpot
     };
 };

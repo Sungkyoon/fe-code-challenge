@@ -2,7 +2,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import useCheckout from './useCheckout';
-import validateInput from './validateInput';
 
 const CHECKOUT_STYLES = {
     height: '550px',
@@ -66,7 +65,9 @@ const usPrice = price => {
 
 const Checkout = props => {
     const {selectedSpot} = props.location.state;
-    const {handleChange, values, handleSubmit, errors} = useCheckout(validateInput);
+    const {handleChange, values, handleSubmit, errors} = useCheckout();
+
+    console.log(values);
 
     return (
         <div
@@ -191,7 +192,9 @@ const Checkout = props => {
                             </>
                         }
                         <div style={{width: '50%', marginLeft: '40%'}}>
-                            <button style={BUTTON_STYLES}>Purchase for {usPrice(selectedSpot.price)}</button>
+                            <Link to={{pathname: '/confirmation', state: {selectedSpot, values}}}>
+                                <button style={BUTTON_STYLES}>Purchase for {usPrice(selectedSpot.price)}</button>
+                            </Link>
                         </div>
                     </form>
                 </div>

@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { buySpot } from './checkout-reducer';
-import { v4 as uuidv4 } from 'uuid';
+import Axios from 'axios';
 
-const useCheckout = (validateInput) => {
+const useCheckout = () => {
   const [values, setValues] = useState({
     id: 0,
     firstName: '',
@@ -25,11 +24,17 @@ const useCheckout = (validateInput) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    setErrors(validateInput(values));
+    setErrors();
+    Axios.post('http://localhost:8001/api/reservations', {
+      id: Math.floor(Math.random() * 1000),
+      firstName: values.firstName,
+      lastName: values.lastName,
+      email: values.email,
+      phone: values.phone,
+    }).then((res) => {
+      console.log(res.data);
+    });
   };
-
-  console.log(values);
 
   return { handleChange, values, handleSubmit, errors };
 };

@@ -81,5 +81,55 @@
       "image": "https://res.cloudinary.com/spothero/image/upload/v1579704582/front-end/code-challenge/iy9iobjbtmrix01hp2yw.jpg"
     }
   ],
-  "reservations": []
+  "reservations": [
+    {
+      "id": 1,
+      "firstName": "Dan",
+      "lastName": "Chong",
+      "email": "d@gmail.com",
+      "phone": "6334112211"
+    },
+    {
+      "id": 2,
+      "firstName": "d",
+      "lastName": "s",
+      "email": "d@gmail.com",
+      "phone": "1112223333"
+    },
+    {
+      "id": 3,
+      "firstName": "D",
+      "lastName": "s",
+      "email": "d@gmail.com",
+      "phone": "9998881111"
+    },
+    {
+      "id": 4,
+      "firstName": "Da",
+      "lastName": "d",
+      "email": "d2@gmail.com",
+      "phone": "0009991111"
+    },
+    {
+      "id": 5,
+      "firstName": "da",
+      "lastName": "ch",
+      "email": "D@gmail.com",
+      "phone": "1117772634"
+    },
+    {
+      "id": 6,
+      "firstName": "da",
+      "lastName": "cd",
+      "email": "dh@gmail.com",
+      "phone": "8882221321"
+    },
+    {
+      "id": 135,
+      "firstName": "da",
+      "lastName": "da",
+      "email": "da@gmail.com",
+      "phone": "8887772222"
+    }
+  ]
 }
